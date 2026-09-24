@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ForgeFit Compose Lab</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="/">FORGE<span>FIT</span></a>
+      <span class="badge">DOCKER COMPOSE LAB</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">NODE.JS • POSTGRESQL • NGINX</p>
+        <h1>Three containers.<br><span>One application.</span></h1>
+        <p class="lead">
+          A practical multi-container demo designed to showcase service networking,
+          persistent database storage, reverse proxying, and container orchestration with Docker Compose.
+        </p>
+      </div>
+
+      <div class="architecture-card">
+        <div class="flow-node">🌐 Browser</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">⚙️ Nginx :80</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">🟢 Node.js :3000</div>
+        <div class="arrow">↓</div>
+        <div class="flow-node">🐘 PostgreSQL :5432</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <p class="eyebrow">SERVICE 01</p>
+        <h2>Nginx</h2>
+        <p>Reverse proxy and public entry point exposed on host port <strong>8080</strong>.</p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">SERVICE 02</p>
+        <h2>Node.js</h2>
+        <p>Express API connected to PostgreSQL through the private Compose network.</p>
+      </article>
+
+      <article class="card">
+        <p class="eyebrow">SERVICE 03</p>
+        <h2>PostgreSQL</h2>
+        <p>Persistent database service backed by a named Docker volume.</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head">
+        <div>
+          <p class="eyebrow">DATABASE DEMO</p>
+          <h2>Gym Members</h2>
+        </div>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+
+      <form id="memberForm" class="member-form">
+        <input id="name" type="text" placeholder="Member name" required>
+        <input id="goal" type="text" placeholder="Training goal" required>
+        <button type="submit">Add Member</button>
+      </form>
+
+      <div id="status" class="status">Checking services...</div>
+      <div id="members" class="members"></div>
+    </section>
+  </main>
+
+  <footer>
+    Docker Compose • Node.js • PostgreSQL • Nginx
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
